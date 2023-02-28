@@ -22,3 +22,16 @@ df=pd.DataFrame.from_dict(res)
 print(df.standard_type.unique())
 
 df.to_csv('bioactivity_data.csv',index=False)
+
+
+
+bioactvity_class=[]
+for i in df.standard_value:
+    if float(i)>=10000:
+        bioactvity_class.append('inactive')
+    elif float(i)<=100:
+        bioactvity_class.append('active')
+    else:
+        bioactvity_class.append('intermediate')
+
+print(bioactvity_class)
